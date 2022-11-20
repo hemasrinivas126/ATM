@@ -12,6 +12,7 @@ const char* password = "tcdp3983";
 HTTPClient http;
 String GOOGLE_SCRIPT_ID = "AKfycby_v-Vgi9-RPJR-Tg54Sr4Jy-uTNCB0yncA_O9tqOoMz7QbeHw0s3V9_tTdWK41Ycft";
 String text;
+String acc_num;
 int httpCode;
 #define BOTtoken "5984324473:AAHfJrg9zyYowM7usCI7FF0mYrcTZoHa1Mg"
 #define CHAT_ID "1545327246"
@@ -75,6 +76,7 @@ void handleNewMessages(int numNewMessages) {
       Serial.println("Request the url");
       HTTPClient http;
       String urlFinal2 = "https://script.google.com/macros/s/" + GOOGLE_SCRIPT_ID + "/exec?" + "password=" + text +"&account_no=" + String(acc_num) +"&acc_pass=1" ;
+      String passcode=text;
       http.begin(urlFinal2.c_str());
       http.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
       int httpCode = http.GET();
@@ -119,7 +121,7 @@ void handleNewMessages(int numNewMessages) {
       Serial.println(text);
       String for_balance_c = "0";
       HTTPClient http;
-      String urlFinal4 = "https://script.google.com/macros/s/" + GOOGLE_SCRIPT_ID + "/exec?" + "notes_credit=" + text + "&opt_credit=" + opt1 ;
+      String urlFinal4 = "https://script.google.com/macros/s/" + GOOGLE_SCRIPT_ID + "/exec?" + "notes_credit=" + text + "&opt_credit=" + opt1+"password=" + text +"&account_no=" + String(acc_num) ;
       http.begin(urlFinal4.c_str());
       http.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
       Serial.println("Request the url");
@@ -149,7 +151,7 @@ void handleNewMessages(int numNewMessages) {
       func();
       String for_balance_d;
       HTTPClient http;
-      String urlFinal6= "https://script.google.com/macros/s/" + GOOGLE_SCRIPT_ID + "/exec?" + "notes_debit=" + text + "&opt_debit=" + opt2;
+      String urlFinal6= "https://script.google.com/macros/s/" + GOOGLE_SCRIPT_ID + "/exec?" + "notes_debit=" + text + "&opt_debit=" + opt2+"password=" + text +"&account_no=" + String(acc_num);
       http.begin(urlFinal6.c_str());
       http.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
       Serial.println("Request the url");
